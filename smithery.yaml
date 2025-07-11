@@ -1,0 +1,34 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'python', args: ['llms_mcp_server.py'], env: { DOCS_BASE_URL: config.docsBaseUrl, SERVER_NAME: config.serverName, CACHE_TTL: config.cacheTtl.toString(), REQUEST_TIMEOUT: config.requestTimeout.toString() } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - docsBaseUrl
+    properties:
+      docsBaseUrl:
+        type: string
+        description: Base URL of the documentation site
+      serverName:
+        type: string
+        default: llms-docs
+        description: Name of the server instance
+      cacheTtl:
+        type: number
+        default: 3600
+        description: Cache TTL in seconds
+      requestTimeout:
+        type: number
+        default: 30
+        description: HTTP request timeout in seconds
+  exampleConfig:
+    docsBaseUrl: https://docs.pydantic.dev/latest/
+    serverName: pydantic-docs
+    cacheTtl: 3600
+    requestTimeout: 30
