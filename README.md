@@ -1,4 +1,5 @@
 # LLMS MCP Server
+[![smithery badge](https://smithery.ai/badge/@parthmodi152/llms-mcp)](https://smithery.ai/server/@parthmodi152/llms-mcp)
 
 A production-ready Model Context Protocol server for accessing documentation subtopics from llms-full.txt format.
 
@@ -23,6 +24,15 @@ A production-ready Model Context Protocol server for accessing documentation sub
 
 ### 1. Installation
 
+#### Installing via Smithery
+
+To install llms-mcp for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@parthmodi152/llms-mcp):
+
+```bash
+npx -y @smithery/cli install @parthmodi152/llms-mcp --client claude
+```
+
+#### Manual Installation
 ```bash
 pip install -r requirements.txt
 ```
